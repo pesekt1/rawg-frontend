@@ -1,10 +1,4 @@
-import { useState, useEffect } from "react";
-import apiClient from "../services/api-client";
-
-interface GameResponse {
-  count: number;
-  results: Game[];
-}
+import useData from "./useData";
 
 export interface Platform {
   id: number;
@@ -21,20 +15,7 @@ export interface Game {
 }
 
 const useGames = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    apiClient
-      .get<GameResponse>("games")
-      .then((res) => setGames(res.data.results))
-      .catch((error) => setError(error.message))
-      .finally(() => setIsLoading(false));
-  }, []);
-
-  return { games, error, isLoading };
+  return useData<Game>("games");
 };
 
 export default useGames;
