@@ -22,7 +22,7 @@ const useGames = (
         parent_platforms: selectedPlatform?.id,
       },
     },
-    [selectedGenre?.id]
+    [selectedGenre?.id, selectedPlatform?.id]
   );
 };
 
