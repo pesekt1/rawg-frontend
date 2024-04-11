@@ -33,6 +33,8 @@ const GenreList = ({ onSelectedGenre, selectedGenre }: Props) => {
                 objectFit="cover"
               />
               <Button
+                whiteSpace="normal"
+                textAlign="left"
                 onClick={() => onSelectedGenre(genre)}
                 variant="link"
                 fontSize="lg"
