@@ -23,7 +23,7 @@ const GenreList = ({ onSelectGenre, selectedGenreId }: Props) => {
       {isLoading && <Spinner />}
       {error && <div>{error.message}</div>}
       <List>
-        {data.results.map((genre) => (
+        {data?.results.map((genre) => (
           <ListItem key={genre.id} paddingY="5px">
             <HStack>
               <Image
