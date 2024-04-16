@@ -2,6 +2,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 import { GameQuery } from "../App";
 import { Platform } from "./usePlatforms";
 import ApiClient, { FetchResponse } from "../services/api-client";
+import ms from "ms";
 
 export interface Game {
   id: number;
@@ -27,7 +28,7 @@ const useGames = (gameQuery: GameQuery) => {
           page: pageParam,
         },
       }),
-    staleTime: 1000 * 60 * 60, // 1 hour
+    staleTime: ms("1h"),
     //allPages is an array of all the pages that have been fetched so we can use it to calculate the next page
     getNextPageParam: (lastPage, allPages) => {
       // if lastPage.next is null, return undefined to stop fetching, because there are no more pages
