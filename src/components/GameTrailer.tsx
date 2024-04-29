@@ -20,6 +20,7 @@ const GameTrailer = ({ gameId }: Props) => {
       controls
       poster={firstTrailer.preview}
       autoPlay={true}
+      width="100%"
     />
   );
 };
